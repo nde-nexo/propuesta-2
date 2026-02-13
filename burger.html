@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger House | Sabor Legendario</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Configuración Tailwind separada -->
+    <script src="js/tailwind-config.js"></script>
+
+    <!-- Estilos personalizados separados -->
+    <link rel="stylesheet" href="css/burger.css">
+</head>
+<body class="bg-bh-dark text-gray-100 font-body antialiased overflow-x-hidden">
+
+    <!-- Botón Flotante Menú (Móvil y Desktop) -->
+    <button onclick="toggleMenu()" class="fixed top-6 left-6 z-50 bg-bh-yellow text-bh-dark p-3 rounded-full shadow-lg hover:bg-bh-gold transition-all duration-300 group">
+        <i class="fas fa-bars text-2xl group-hover:rotate-180 transition-transform duration-300"></i>
+    </button>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/1234567890?text=Hola%20Burger%20House,%20quiero%20hacer%20un%20pedido!" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Menú Lateral Desplegable (Navegación) -->
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-80 glass-nav z-40 transform -translate-x-full rounded-r-[3rem] border-r-2 border-bh-olive shadow-2xl flex flex-col justify-between py-10 px-8">
+        <div>
+            <div class="flex items-center justify-between mb-12 mt-8">
+                <h2 class="text-3xl font-head font-bold text-bh-yellow">BURGER<br><span class="text-white">HOUSE</span></h2>
+                <button onclick="toggleMenu()" class="text-white hover:text-bh-red text-2xl"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <ul class="space-y-6 text-lg font-medium">
+                <li><a href="#inicio" onclick="toggleMenu()" class="flex items-center gap-4 hover:text-bh-gold transition-colors"><i class="fas fa-home w-6"></i> Inicio</a></li>
+                <li><a href="#menu" onclick="toggleMenu()" class="flex items-center gap-4 hover:text-bh-gold transition-colors"><i class="fas fa-utensils w-6"></i> Menú</a></li>
+                <li><a href="#paquetes" onclick="toggleMenu()" class="flex items-center gap-4 hover:text-bh-gold transition-colors"><i class="fas fa-box-open w-6"></i> Paquetes</a></li>
+                <li><a href="#feedback" onclick="toggleMenu()" class="flex items-center gap-4 hover:text-bh-gold transition-colors"><i class="fas fa-comment-alt w-6"></i> Opiniones</a></li>
+                <li><a href="#faq" onclick="toggleMenu()" class="flex items-center gap-4 hover:text-bh-gold transition-colors"><i class="fas fa-question-circle w-6"></i> FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="border-t border-bh-olive pt-6">
+            <p class="text-sm text-gray-400 mb-4">Síguenos:</p>
+            <div class="flex gap-4">
+                <a href="#" class="text-2xl text-bh-gold hover:text-white transition-colors"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-2xl text-bh-gold hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay para cerrar menú -->
+    <div id="menu-overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 hidden transition-opacity duration-300"></div>
+
+    <!-- SECCIÓN HERO -->
+    <header id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Imagen de fondo con overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero.png" alt="Burger Background" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-bh-dark via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-bh-dark/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <div class="inline-block border-2 border-bh-gold px-4 py-1 rounded-full text-bh-gold font-bold tracking-widest text-sm mb-4 animate-pulse">EST. 2024</div>
+            <h1 class="text-6xl md:text-8xl font-head font-bold text-white mb-4 leading-tight">
+                BURGER <span class="text-bh-yellow">HOUSE</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                No es solo comida rápida. Es una experiencia de <span class="text-bh-gold font-bold">alto impacto</span>. 
+                Hamburguesas, alitas y boneless que desafían tu hambre.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#menu" class="bg-bh-yellow text-bh-dark font-bold py-3 px-8 rounded-full text-lg hover:bg-bh-gold hover:shadow-[0_0_20px_rgba(255,193,7,0.5)] transition-all transform hover:-translate-y-1">
+                    Ver Menú
+                </a>
+                <a href="#paquetes" class="border-2 border-bh-olive text-bh-gold font-bold py-3 px-8 rounded-full text-lg hover:bg-bh-olive hover:text-white transition-all">
+                    Ver Paquetes
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN MENÚ -->
+    <section id="menu" class="py-20 px-4 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-head font-bold text-bh-gold mb-4">NUESTRO ARSENAL</h2>
+            <div class="w-24 h-1 bg-bh-red mx-auto rounded-full"></div>
+            
+            <!-- Filtros de Categoría -->
+            <div class="flex flex-wrap justify-center gap-3 mt-8">
+                <button onclick="filterMenu('all')" class="filter-btn active bg-bh-yellow text-bh-dark font-bold py-2 px-6 rounded-full hover:bg-white transition-colors" data-category="all">Todo</button>
+                <button onclick="filterMenu('burger')" class="filter-btn border border-bh-olive text-gray-300 py-2 px-6 rounded-full hover:border-bh-gold hover:text-bh-gold transition-colors" data-category="burger">Hamburguesas</button>
+                <button onclick="filterMenu('chicken')" class="filter-btn border border-bh-olive text-gray-300 py-2 px-6 rounded-full hover:border-bh-gold hover:text-bh-gold transition-colors" data-category="chicken">Pollo (Alitas/Boneless)</button>
+                <button onclick="filterMenu('hotdog')" class="filter-btn border border-bh-olive text-gray-300 py-2 px-6 rounded-full hover:border-bh-gold hover:text-bh-gold transition-colors" data-category="hotdog">Hot Dogs</button>
+                <button onclick="filterMenu('extras')" class="filter-btn border border-bh-olive text-gray-300 py-2 px-6 rounded-full hover:border-bh-gold hover:text-bh-gold transition-colors" data-category="extras">Extras</button>
+            </div>
+        </div>
+
+        <!-- Grid de Productos -->
+        <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Los productos se cargan con JS -->
+        </div>
+    </section>
+
+    <!-- SECCIÓN PAQUETES (Packages) -->
+    <section id="paquetes" class="py-20 bg-bh-olive/10 border-y border-bh-olive/20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-head font-bold text-white text-center mb-12">
+                COMBOS <span class="text-bh-red">ARMADOS</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paquete 1 -->
+                <div class="bg-bh-dark border border-bh-olive rounded-3xl p-6 relative overflow-hidden group hover:border-bh-gold transition-colors">
+                    <div class="absolute top-0 right-0 bg-bh-gold text-bh-dark font-bold px-4 py-1 rounded-bl-xl z-10">Best Seller</div>
+                    <div class="h-48 overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Paquete Solo">
+                    </div>
+                    <h3 class="text-2xl font-head font-bold text-white mb-2">Paquete Solitario</h3>
+                    <p class="text-gray-400 text-sm mb-4">1 Burger Clásica + Papas Medianas + Refresco</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-bh-gold">$129</span>
+                        <a href="https://wa.me/1234567890?text=Quiero%20el%20Paquete%20Solitario" target="_blank" class="bg-bh-red text-white px-6 py-2 rounded-lg font-bold hover:bg-red-700 transition-colors"><i class="fab fa-whatsapp"></i> Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Paquete 2 -->
+                <div class="bg-bh-dark border border-bh-olive rounded-3xl p-6 relative overflow-hidden group hover:border-bh-gold transition-colors">
+                    <div class="h-48 overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Paquete Pareja">
+                    </div>
+                    <h3 class="text-2xl font-head font-bold text-white mb-2">Dúo Dinámico</h3>
+                    <p class="text-gray-400 text-sm mb-4">2 Burgers (Especiales) + 2 Papas + 2 Bebidas + 6 Alitas</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-bh-gold">$249</span>
+                        <a href="https://wa.me/1234567890?text=Quiero%20el%20Dúo%20Dinámico" target="_blank" class="bg-bh-red text-white px-6 py-2 rounded-lg font-bold hover:bg-red-700 transition-colors"><i class="fab fa-whatsapp"></i> Pedir</a>
+                    </div>
+                </div>
+
+                <!-- Paquete 3 -->
+                <div class="bg-bh-dark border border-bh-olive rounded-3xl p-6 relative overflow-hidden group hover:border-bh-gold transition-colors">
+                    <div class="h-48 overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Paquete Familia">
+                    </div>
+                    <h3 class="text-2xl font-head font-bold text-white mb-2">Munchies Squad</h3>
+                    <p class="text-gray-400 text-sm mb-4">1kg Boneless + Papas Gajo + 4 Bebidas + Nachos</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-bh-gold">$399</span>
+                        <a href="https://wa.me/1234567890?text=Quiero%20el%20Munchies%20Squad" target="_blank" class="bg-bh-red text-white px-6 py-2 rounded-lg font-bold hover:bg-red-700 transition-colors"><i class="fab fa-whatsapp"></i> Pedir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEEDBACK & FAQ GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+        
+        <!-- SECCIÓN FEEDBACK -->
+        <section id="feedback" class="py-20 px-8 bg-bh-dark relative border-r border-bh-olive/30">
+            <h2 class="text-3xl font-head font-bold text-bh-gold mb-8 text-center">TU OPINIÓN CUENTA</h2>
+            <form id="feedback-form" class="max-w-md mx-auto space-y-4">
+                <div>
+                    <label class="block text-bh-olive text-sm font-bold mb-2">Nombre</label>
+                    <input id="fb-name" type="text" class="w-full bg-[#2a3544] border border-bh-olive/50 rounded-lg p-3 text-white focus:outline-none focus:border-bh-gold" placeholder="Tu nombre" aria-required="true">
+                </div>
+                <div>
+                    <label class="block text-bh-olive text-sm font-bold mb-2">Calificación</label>
+                    <div id="fb-stars" class="flex gap-2 text-2xl text-gray-600 cursor-pointer" role="radiogroup" aria-label="Calificación">
+                        <i class="fas fa-star hover:text-bh-yellow" data-value="1" role="radio" aria-checked="false" tabindex="0"></i>
+                        <i class="fas fa-star hover:text-bh-yellow" data-value="2" role="radio" aria-checked="false" tabindex="0"></i>
+                        <i class="fas fa-star hover:text-bh-yellow" data-value="3" role="radio" aria-checked="false" tabindex="0"></i>
+                        <i class="fas fa-star hover:text-bh-yellow" data-value="4" role="radio" aria-checked="false" tabindex="0"></i>
+                        <i class="fas fa-star hover:text-bh-yellow" data-value="5" role="radio" aria-checked="false" tabindex="0"></i>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-bh-olive text-sm font-bold mb-2">Comentario</label>
+                    <textarea id="fb-comment" class="w-full bg-[#2a3544] border border-bh-olive/50 rounded-lg p-3 text-white focus:outline-none focus:border-bh-gold h-32" placeholder="¿Qué tal estuvieron las alitas?" aria-required="true"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-bh-yellow text-bh-dark font-bold py-3 rounded-lg hover:bg-white transition-colors">ENVIAR COMENTARIO</button>
+                <p id="fb-error" class="mt-2 text-red-400 text-sm hidden">Por favor completa todos los campos y selecciona una calificación.</p>
+            </form>
+        </section>
+
+        <!-- SECCIÓN FAQ -->
+        <section id="faq" class="py-20 px-8 bg-[#252f3e]">
+            <h2 class="text-3xl font-head font-bold text-bh-gold mb-8 text-center">PREGUNTAS FRECUENTES</h2>
+            <div class="max-w-md mx-auto space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <details class="group bg-bh-dark border border-bh-olive/30 rounded-xl overflow-hidden cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium p-4 text-white hover:text-bh-yellow transition-colors list-none">
+                        <span>¿Cuál es el tiempo de entrega?</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 p-4 pt-0 text-sm leading-relaxed border-t border-bh-olive/20 mt-2">
+                        Depende de la zona, pero generalmente entre 30 y 45 minutos. Te confirmamos el tiempo exacto por WhatsApp al pedir.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-bh-dark border border-bh-olive/30 rounded-xl overflow-hidden cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium p-4 text-white hover:text-bh-yellow transition-colors list-none">
+                        <span>¿Aceptan pagos con tarjeta?</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 p-4 pt-0 text-sm leading-relaxed border-t border-bh-olive/20 mt-2">
+                        Sí, aceptamos efectivo, transferencia y todas las tarjetas mediante terminal móvil al momento de la entrega.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-bh-dark border border-bh-olive/30 rounded-xl overflow-hidden cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium p-4 text-white hover:text-bh-yellow transition-colors list-none">
+                        <span>¿Puedo personalizar mi hamburguesa?</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-400 p-4 pt-0 text-sm leading-relaxed border-t border-bh-olive/20 mt-2">
+                        ¡Por supuesto! Puedes quitar ingredientes o agregar extras como tocino, queso extra o piña desde la sección de extras.
+                    </div>
+                </details>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-10 border-t border-bh-red">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h3 class="text-2xl font-head font-bold text-white">BURGER <span class="text-bh-yellow">HOUSE</span></h3>
+                <p class="text-gray-500 text-sm">© 2024 Todos los derechos reservados.</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="w-10 h-10 rounded-full bg-bh-dark flex items-center justify-center text-bh-gold hover:bg-bh-yellow hover:text-bh-dark transition-all border border-bh-olive">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-bh-dark flex items-center justify-center text-bh-gold hover:bg-bh-yellow hover:text-bh-dark transition-all border border-bh-olive">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-bh-dark flex items-center justify-center text-bh-gold hover:bg-bh-yellow hover:text-bh-dark transition-all border border-bh-olive">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lógica JavaScript separada -->
+    <script src="js/burger.js" defer></script>
+</body>
+</html>

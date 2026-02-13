@@ -1,0 +1,26 @@
+/* Scrollbar personalizada */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1F2937; }
+::-webkit-scrollbar-thumb { background: #F2C94C; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #FFC107; }
+
+/* Navegación con efecto glass */
+.glass-nav {
+  background: rgba(31, 41, 55, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hover de tarjetas */
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(242, 201, 76, 0.2);
+}
+
+/* Animación suave del menú lateral */
+#side-menu {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Utilidades menores */
+.opacity-transition { transition: opacity 0.3s ease-in-out; }
